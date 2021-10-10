@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int numberInstructions;
+    string instructionName;
+    char instructionValue;
+    int lettersToDelete;
+    string result;
+
+    cin >> numberInstructions;
+
+    while (numberInstructions > 0) {
+        cin >> instructionName;
+        cin >> instructionValue;
+
+        if (instructionName == "DODAJ") {
+            result += instructionValue;
+        }
+        else if (instructionName == "USUN") {
+            lettersToDelete = atoi(&instructionValue);
+            if (lettersToDelete >= result.size()) result = "";
+            else result.resize(result.size() - lettersToDelete);
+        }
+        else if (instructionName == "ZAMIEN") {
+            if (!result.empty()) {
+                result[result.size() - 1] = instructionValue;
+            }
+        }
+
+        numberInstructions--;
+    }
+    cout << result << endl;
+    return 0;
+}
