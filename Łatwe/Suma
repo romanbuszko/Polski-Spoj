@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int total = 0, value;
+    
+    while (cin >> value) {
+        total += value;
+        cout << total << endl;
+    }
+
+    return 0;
+}
